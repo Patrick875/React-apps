@@ -4,9 +4,59 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: rgb(13, 37, 63);
+}
+
+h1,
+h3 {
+  color: white;
+  text-align: center;
+  padding: 2em 1em 0 1em;
+
+}
+
+h3 {
+  font-size: 1.6em;
+  margin: 1.5rem;
+}
+
 img {
   width: 100%;
   height: 300px
+}
+
+a {
+  list-style-type: none;
+  text-decoration: none;
+  color: white;
+  font-size: 2rem;
+  padding: 1em;
+  /* margin: 1em; */
+
+}
+
+nav {
+  background-color: rgba(78, 138, 202, 0.24);
+  height: 4em;
+}
+
+li {
+  display: inline-block;
+  margin-top: .8em;
+}
+
+h1 {
+  margin: 1.5em;
+}
+
+footer {
+  position: static;
+  width: 100%;
+  bottom: 1%;
+  background-color: black;
+  color: white;
+  text-align: center;
 }
 
 .container {
@@ -26,17 +76,9 @@ img {
   font-size: 1em;
 }
 
-.container {
-  background-color: rgb(13, 37, 63);
-}
-
-/* 
-.movies {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 1fr);
-} */
-
-.movies {
+.movies,
+.popular,
+.trending {
   width: 90%;
   margin: auto 5%;
   display: grid;
