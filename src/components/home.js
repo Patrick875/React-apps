@@ -7,7 +7,7 @@ function Home() {
 	const api = {
 		key: "b4f8ac6ee2c6df7cdf553494ebd88659",
 		url: "https://api.themoviedb.org/3/trending/all/day?api_key=",
-		url1: "https://api.themoviedb.org/3/movie/latest?api_key=",
+		url1: "https://api.themoviedb.org/3/movie/popular?api_key=",
 	};
 	useEffect(() => {
 		const abortController = new AbortController();
@@ -26,12 +26,9 @@ function Home() {
 	useEffect(() => {
 		const abortController = new AbortController();
 		const getPopular = async () => {
-			await fetch(
-				`https://api.themoviedb.org/3/movie/popular?api_key=b4f8ac6ee2c6df7cdf553494ebd88659&language=en-US&page=1`,
-				{
-					signal: abortController.signal,
-				}
-			)
+			await fetch(`${api.url1}${api.key}&language=en-US&page=1`, {
+				signal: abortController.signal,
+			})
 				.then((res) => res.json())
 				.then((res) => {
 					setPopular(res.results.slice(0, 10));

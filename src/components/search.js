@@ -5,7 +5,6 @@ import React, { useState } from "react";
 function Search() {
 	const [movies, setMovies] = useState("");
 	const [query, setQuery] = useState("");
-	//const [trending, setTrending] = useState(null);
 	const api = {
 		url: "https://api.themoviedb.org/3/search/movie/?",
 		key: "b4f8ac6ee2c6df7cdf553494ebd88659",
