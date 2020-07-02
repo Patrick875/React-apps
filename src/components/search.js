@@ -1,6 +1,7 @@
 //jshint esversion:9
 
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Search() {
 	const [movies, setMovies] = useState("");
@@ -27,10 +28,12 @@ function Search() {
 		? movies.map((el) => {
 				return (
 					<div key={el.id} className="movie">
-						<img
-							src={`https://image.tmdb.org/t/p/w500${el.poster_path}`}
-							alt="movie img"
-						/>
+						<Link to={"/" + el.id}>
+							<img
+								src={`https://image.tmdb.org/t/p/w500${el.poster_path}`}
+								alt="movie img"
+							/>
+						</Link>
 						<h4>{el.title}</h4>
 						<h5>Release Date: {el.release_date}</h5>
 						<h5>Rating: {el.vote_average}</h5>

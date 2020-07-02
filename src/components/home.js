@@ -1,5 +1,6 @@
 //jshint esversion:9
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function Home() {
 	const [popular, setPopular] = useState(null);
@@ -15,7 +16,7 @@ function Home() {
 			await fetch(`${api.url}${api.key}`, { signal: abortController.signal })
 				.then((res) => res.json())
 				.then((res) => {
-					setTrending(res.results.slice(0, 10));
+					setTrending(res.results.slice(0, 12));
 				});
 		};
 		getTrending();
@@ -31,7 +32,7 @@ function Home() {
 			})
 				.then((res) => res.json())
 				.then((res) => {
-					setPopular(res.results.slice(0, 10));
+					setPopular(res.results.slice(0, 12));
 				});
 		};
 		getPopular();
@@ -43,10 +44,12 @@ function Home() {
 		? trending.map((el) => {
 				return (
 					<div key={el.id} className="movie">
-						<img
-							src={`https://image.tmdb.org/t/p/w500${el.poster_path}`}
-							alt="movie img"
-						/>
+						<Link to={"/" + el.id}>
+							<img
+								src={`https://image.tmdb.org/t/p/w500${el.poster_path}`}
+								alt="movie img"
+							/>
+						</Link>
 						<h4>{el.original_name || el.original_title}</h4>
 						<h5>Release Date: {el.release_date}</h5>
 						<h5>Rating: {el.vote_average}</h5>
@@ -58,10 +61,12 @@ function Home() {
 		? popular.map((el) => {
 				return (
 					<div key={el.key} className="movie">
-						<img
-							src={`https://image.tmdb.org/t/p/w500${el.poster_path}`}
-							alt="movie img"
-						/>
+						<Link to={"/" + el.id}>
+							<img
+								src={`https://image.tmdb.org/t/p/w500${el.poster_path}`}
+								alt="movie img"
+							/>
+						</Link>
 						<h4>{el.title}</h4>
 						<h5>Release Date: {el.release_date}</h5>
 						<h5>Rating: {el.vote_average}</h5>
